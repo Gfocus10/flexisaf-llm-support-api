@@ -1,0 +1,20 @@
+[FAIL] success: normal question: HTTP 500 (expected [200])
+        service_misconfigured: The assistant is not configured correctly. Please contact support.
+[FAIL] success: custom settings: HTTP 500 (expected [200])
+        service_misconfigured: The assistant is not configured correctly. Please contact support.
+[PASS] failure: empty question: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': String should have at least 3 characters
+[PASS] failure: whitespace only question: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': Value error, question must contain at least 3 non-space characters
+[PASS] failure: question too long: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': String should have at most 2000 characters
+[PASS] failure: temperature out of range: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'temperature': Input should be less than or equal to 1
+[PASS] failure: missing question field: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': Field required
+
+== streaming: /v1/support/stream ==
+status=500 model=None
+{"error":"service_misconfigured","message":"The assistant is not configured correctly. Please contact support.","request_id":"5510a6697426"}
+
+5 passed, 2 failed

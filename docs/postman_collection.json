@@ -1,0 +1,15 @@
+{
+  "info": {"name": "LLM Support Assistant API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},
+  "variable": [{"key": "base_url", "value": "http://127.0.0.1:8000"}],
+  "item": [
+    {"name": "Health", "request": {"method": "GET", "url": "{{base_url}}/health"}},
+    {"name": "Ask: success", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}],
+      "url": "{{base_url}}/v1/support/ask", "body": {"mode": "raw", "raw": "{\"question\": \"How do I reset my password?\", \"temperature\": 0.2, \"max_output_tokens\": 300}"}}},
+    {"name": "Ask: empty question (422)", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}],
+      "url": "{{base_url}}/v1/support/ask", "body": {"mode": "raw", "raw": "{\"question\": \"\"}"}}},
+    {"name": "Ask: bad temperature (422)", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}],
+      "url": "{{base_url}}/v1/support/ask", "body": {"mode": "raw", "raw": "{\"question\": \"Hello there\", \"temperature\": 9}"}}},
+    {"name": "Stream", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}],
+      "url": "{{base_url}}/v1/support/stream", "body": {"mode": "raw", "raw": "{\"question\": \"Explain how to track my order.\"}"}}}
+  ]
+}

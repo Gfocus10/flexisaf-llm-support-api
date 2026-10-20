@@ -1,0 +1,22 @@
+[PASS] success: normal question: HTTP 200 (expected [200])
+        answer='To reset your password, follow these steps:\n\n1. Go to the **Login** page.\n2. Cli' model=gemini-3.6-flash tokens=54+123 cost=$0.0 retries=0 latency=9362ms
+[PASS] success: custom settings: HTTP 200 (expected [200])
+        answer='I do not have access to the specific refund policy details for this service. Ple' model=gemini-3.6-flash tokens=53+32 cost=$0.0 retries=0 latency=3218ms
+[PASS] failure: empty question: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': String should have at least 3 characters
+[PASS] failure: whitespace only question: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': Value error, question must contain at least 3 non-space characters
+[PASS] failure: question too long: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': String should have at most 2000 characters
+[PASS] failure: temperature out of range: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'temperature': Input should be less than or equal to 1
+[PASS] failure: missing question field: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': Field required
+
+== streaming: /v1/support/stream ==
+status=200 model=gemini-3.6-flash
+streamed text: To track your order, follow these simple steps:
+
+1. **Check your email:** Look for the shipping confirmation email sent after your purchase. It usually contains a tracking number and a direct link to 
+
+7 passed, 0 failed

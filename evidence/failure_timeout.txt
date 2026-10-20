@@ -1,0 +1,20 @@
+[FAIL] success: normal question: HTTP 504 (expected [200])
+        timeout: The assistant took too long to respond. Please try again.
+[FAIL] success: custom settings: HTTP 504 (expected [200])
+        timeout: The assistant took too long to respond. Please try again.
+[PASS] failure: empty question: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': String should have at least 3 characters
+[PASS] failure: whitespace only question: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': Value error, question must contain at least 3 non-space characters
+[PASS] failure: question too long: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': String should have at most 2000 characters
+[PASS] failure: temperature out of range: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'temperature': Input should be less than or equal to 1
+[PASS] failure: missing question field: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': Field required
+
+== streaming: /v1/support/stream ==
+status=504 model=None
+{"error":"timeout","message":"The assistant took too long to respond. Please try again.","request_id":"5af45b5f53fa"}
+
+5 passed, 2 failed

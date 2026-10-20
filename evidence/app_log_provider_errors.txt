@@ -1,0 +1,2 @@
+{"timestamp": "2026-10-20T07:55:02.539618+00:00", "level": "WARNING", "event": "model_failed", "request_id": "b36f0e8ab501", "model": "gemini-3.8-flash", "error_type": "InternalServerError", "retries": 2, "will_fallback": true}
+{"timestamp": "2026-10-20T07:56:07.287045+00:00", "level": "WARNING", "event": "model_failed", "request_id": "38fd82bb033c", "model": "gemini-3.8-flash", "error_type": "APITimeoutError", "retries": 2, "will_fallback": true}

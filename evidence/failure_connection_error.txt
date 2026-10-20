@@ -1,0 +1,20 @@
+[FAIL] success: normal question: HTTP 503 (expected [200])
+        service_unavailable: The assistant is temporarily unavailable. Please try again shortly.
+[FAIL] success: custom settings: HTTP 503 (expected [200])
+        service_unavailable: The assistant is temporarily unavailable. Please try again shortly.
+[PASS] failure: empty question: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': String should have at least 3 characters
+[PASS] failure: whitespace only question: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': Value error, question must contain at least 3 non-space characters
+[PASS] failure: question too long: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': String should have at most 2000 characters
+[PASS] failure: temperature out of range: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'temperature': Input should be less than or equal to 1
+[PASS] failure: missing question field: HTTP 422 (expected [422])
+        invalid_input: Invalid value for 'question': Field required
+
+== streaming: /v1/support/stream ==
+status=503 model=None
+{"error":"service_unavailable","message":"The assistant is temporarily unavailable. Please try again shortly.","request_id":"69f761308b58"}
+
+5 passed, 2 failed
